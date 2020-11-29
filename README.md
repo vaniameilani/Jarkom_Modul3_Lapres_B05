@@ -21,7 +21,7 @@
   c. TUBAN	: NID_DMZ_tiap_kelompok + 4 = 10.151.83.52
 
 ## SOAL
-[IMG]
+<img src="https://user-images.githubusercontent.com/61219556/100546834-f103b500-3295-11eb-850a-f664d9f6fced.PNG" width="500" height="auto">
 
 ### 1. Membuat Topologi Jaringan berdasarkan dengan kriteria :<br>
 a. SURABAYA                                 = Router<br>
@@ -37,35 +37,35 @@ Proses pembuatannya :<br>
 - Lalu, di `bash topologi.sh`.
 - Tahap-tahap selanjutnya sama dengan modul Pengenalan UML. Perbedaannya adalah isi config dari `nano /etc/network/interfaces` pada setiap UML.<br>
 a. Router SURABAYA
-[IMG "Interface SBYa] 
-[IMG "Interface SBYb]
+<img src="https://user-images.githubusercontent.com/61219556/100546811-ddf0e500-3295-11eb-8bf8-748743e268d0.PNG" width="500" height="auto">
+<img src="https://user-images.githubusercontent.com/61219556/100546813-de897b80-3295-11eb-9c9e-14dd0e57c2ca.PNG" width="500" height="auto">
 
 b. DNS Server MALANG
-[IMG "interface MLG"]
+<img src="https://user-images.githubusercontent.com/61219556/100546798-d6c9d700-3295-11eb-854c-efaa5b7683fe.PNG" width="500" height="auto">
 
 c. DHCP Server TUBAN
-[IMG "interface TUBAN]
+<img src="https://user-images.githubusercontent.com/61219556/100546817-e0533f00-3295-11eb-9f3a-b816abe8ad9e.PNG" width="500" height="auto">
 
 d. Proxy Server MOJOKERTO
-[IMG "interface MJK]
+<img src="https://user-images.githubusercontent.com/61219556/100546806-db8e8b00-3295-11eb-837e-ec039839c852.PNG" width="500" height="auto">
 
 e. Client GRESIK
-[IMG "interface GRESIK]
+<img src="https://user-images.githubusercontent.com/61219556/100546804-d9c4c780-3295-11eb-844a-6b38e868de9f.PNG" width="500" height="auto">
 
 f. Client SIDOARJO
-[IMG "interface SRJ]
+<img src="https://user-images.githubusercontent.com/61219556/100546815-dfbaa880-3295-11eb-848a-706723555701.PNG" width="500" height="auto">
 
 g. Client BANYUWANGI
-[IMG "interface BWI]
+<img src="https://user-images.githubusercontent.com/61219556/100546803-d92c3100-3295-11eb-9a7f-46b48f2a0c9b.PNG" width="500" height="auto">
 
 h. Client MADIUN
-[IMG "interface MDN]
+<img src="https://user-images.githubusercontent.com/61219556/100546805-da5d5e00-3295-11eb-9ce1-c04d73bb3443.PNG" width="500" height="auto">
 
 - Setelah itu di-restart dengan perintah `service networking interfaces`.
 - Lalu, cek dengan menggunakan `ifconfig` dan hasil nya seperti berikut ini :<br>
-  [IMG ifconfig SBY]
-  [IMG ifconfig MLG]
-  [IMG ifconfig GRESIK]
+  <img src="https://user-images.githubusercontent.com/61219556/100546909-78512880-3296-11eb-8394-8daef92e21c8.PNG" width="500" height="auto">
+  <img src="https://user-images.githubusercontent.com/61219556/100546906-76876500-3296-11eb-9811-930964f38163.PNG" width="500" height="auto">
+  <img src="https://user-images.githubusercontent.com/61219556/100546904-75563800-3296-11eb-8bdf-fae3a5f87145.PNG" width="500" height="auto">
 
 - Untuk mengakses jaringan keluar, ketik perintah `iptables –t nat –A POSTROUTING –o eth0 –j MASQUERADE –s 192.168.0.0/16` pada UML SURABAYA.
 
@@ -85,7 +85,7 @@ apt-get install isc-dhcp-relay
 nano /etc/default/isc-dhcp-relay
 ```
 Lalu, edit file seperti dibawah ini :
-[IMG relaySBY]
+ <img src="https://user-images.githubusercontent.com/61219556/100546929-9dde3200-3296-11eb-98d0-c8a213f8e1a5.PNG" width="500" height="auto">
 
 ### 3-6
 - Pada **TUBAN**, install DHCP Server dengan update package lists terlebih dahulu 
@@ -104,7 +104,7 @@ INTERFACES="eth0"
 nano /etc/dhcp/dhcpd.conf
 ```
 - Tambahkan script berikut seperti dibawah ini
-[IMG secrver dhcp config]
+<img src="https://user-images.githubusercontent.com/61219556/100546953-b64e4c80-3296-11eb-9dcb-49c0c208a34a.PNG" width="500" height="auto">
 
 Pada soal no.3, pada **SUBNET1** yaitu **SUBNET 192.168.0.0**, atur range dari `192.168.0.10` sampai `192.168.0.100` dan dari `192.168.0.110` sampai `192.168.0.200`.<br>
 Pada soal no.4, pada **SUBNET3** yaitu **SUBNET 192.168.1.0**, atur range dari `192.168.1.50` sampai `192.168.1.70`.<br>
@@ -121,35 +121,35 @@ service isc-dhcp-server restart
 auto eth0
 iface eth0 inet dhcp
 ```
-[IMG statisGRESIK]
+<img src="https://user-images.githubusercontent.com/61219556/100546953-b64e4c80-3296-11eb-9dcb-49c0c208a34a.PNG" width="500" height="auto">
 
 - Restart network dengan perintah `service networking restart`
-[IMG client_GRESIK]
+<img src="https://user-images.githubusercontent.com/61219556/100546953-b64e4c80-3296-11eb-9dcb-49c0c208a34a.PNG" width="500" height="auto">
 
 - Cek kembali **IP GRESIK** dengan menjalankan `ifconfig`
-[IMG client_ifconfiGRESIK]
+<img src="https://user-images.githubusercontent.com/61219556/100546953-b64e4c80-3296-11eb-9dcb-49c0c208a34a.PNG" width="500" height="auto">
 
 - Periksa juga apakah **GRESIK** sudah mendapatkan DNS server sesuai konfigurasi di DHCP. Periksa `/etc/resolv.conf` dengan menggunakan perintah
 ```
 cat /etc/resolv.conf
 ```
-[IMG clientGRESIK_nameserver]
+<img src="https://user-images.githubusercontent.com/61219556/100546953-b64e4c80-3296-11eb-9dcb-49c0c208a34a.PNG" width="500" height="auto">
 
 - Lakukan kembali langkah - langkah di atas pada client :<br>
 a.**SIDOARJO**
-[IMG clientSIDOARJO]
-[IMG clientSIDOARJO_ifconfig]
-[IMG clientSIDOARJO2]
+<img src="https://user-images.githubusercontent.com/61219556/100546953-b64e4c80-3296-11eb-9dcb-49c0c208a34a.PNG" width="500" height="auto">
+<img src="https://user-images.githubusercontent.com/61219556/100546953-b64e4c80-3296-11eb-9dcb-49c0c208a34a.PNG" width="500" height="auto">
+<img src="https://user-images.githubusercontent.com/61219556/100546953-b64e4c80-3296-11eb-9dcb-49c0c208a34a.PNG" width="500" height="auto">
 <br>
 b.**MADIUN**
-[IMG clientMADIUN]
-[IMG clientMADIUN_ifconfig]
-[IMG clientMADIUN2]
+<img src="https://user-images.githubusercontent.com/61219556/100546953-b64e4c80-3296-11eb-9dcb-49c0c208a34a.PNG" width="500" height="auto">
+<img src="https://user-images.githubusercontent.com/61219556/100546953-b64e4c80-3296-11eb-9dcb-49c0c208a34a.PNG" width="500" height="auto">
+<img src="https://user-images.githubusercontent.com/61219556/100546953-b64e4c80-3296-11eb-9dcb-49c0c208a34a.PNG" width="500" height="auto">
 <br>
 c.**BANYUWANGI**
-[IMG BANYUWANGI ifconfig]
-[IMG BANYUWANGI ifconfig2]
-[IMG BANYUWANGI ifconfig3]
+<img src="https://user-images.githubusercontent.com/61219556/100546953-b64e4c80-3296-11eb-9dcb-49c0c208a34a.PNG" width="500" height="auto">
+<img src="https://user-images.githubusercontent.com/61219556/100546953-b64e4c80-3296-11eb-9dcb-49c0c208a34a.PNG" width="500" height="auto">
+<img src="https://user-images.githubusercontent.com/61219556/100546953-b64e4c80-3296-11eb-9dcb-49c0c208a34a.PNG" width="500" height="auto">
 
 ### 7-11
 - Install terlebih dahulu Squid pada **MOJOKERTO** 
@@ -166,6 +166,12 @@ service squid status
 ```
 mv /etc/squid/squid.conf /etc/squid/squid.conf.bak
 ```
+- buat konfigurasi baru dengan mengetikkan `nano /etc/squid/squid.conf`. 
+Kemudian, pada file config yang baru dengan menambahkan isian :
+```
+http_port 8080
+visible_hostname mojokerto
+```
 - Pada soal no.7 disuruh untuk membuat **username** dann **password** dengan format :<br>
 Username 		: userta_yyy		= userta_b05<br>
 Password	  : inipassw0rdta_yyy	= inipassw0rdta_b05<br>
@@ -177,13 +183,66 @@ htpasswd -c /etc/squid/passwd userta_b05
 ```
 <img src="https://user-images.githubusercontent.com/61219556/100545918-00ccca80-3291-11eb-88c1-708a100ffce2.PNG" width="500" height="auto">
 
-- Lalu, buat konfigurasi baru dengan mengetikkan `nano /etc/squid/squid.conf`. 
-Kemudian, pada file config yang baru, edit file seperti ini   :
+- Lalu, buka kembali file  `nano /etc/squid/squid.conf`. Kemudian, edit file seperti ini   :
 <img src="https://user-images.githubusercontent.com/61219556/100545916-00343400-3291-11eb-9f44-24df058f7021.PNG" width="500" height="auto">
 
-- Restart Squid dengan perintah `service squid restart`
-<https://user-images.githubusercontent.com/61219556/100545919-032f2480-3291-11eb-8b3b-7f4dc3ef66e6.PNG" width="500" height="auto">
+- Restart Squid dengan perintah `service squid restart`, dan hasilnya adalah  :
+<img src="https://user-images.githubusercontent.com/61219556/100545919-032f2480-3291-11eb-8b3b-7f4dc3ef66e6.PNG" width="500" height="auto">
 
+- Lalu pada soal no.8, diminta untuk set jadwal akses jaringan internet dengan menggunakan proxy tersebut pada hari **Selasa-Rabu jam 13:00-18:00**. Sedangkan pada soal no.9 diminta untuk set jadwal akses jaringan internet dengan menggunakan proxy tersebut pada hari **Selasa-Kamis jam 21:00-09.00 (sasmpai Jumat jam 09:00)** .
+- Maka, buat file `nano /etc/squid/acl.conf` dengan isian sebagai berikut :
+<img src="https://user-images.githubusercontent.com/61219556/100546298-32df2c00-3293-11eb-90d4-9769fe19b999.PNG" width="500" height="auto">
+
+Maka, buka kembali file `nano /etc/squid/squid.conf` dan edit file seperti ini :
+<img src="https://user-images.githubusercontent.com/61219556/100546296-31adff00-3293-11eb-8241-98fe003e7e1d.PNG" width="500" height="auto">
+
+- Untuk soal no.10, saat akses **google.com**, web akan mendirect ke **monta.if.its.ac.id**, sehingga tambahkan konfigurasi pada file yang sama dengan   :
+```
+acl REDIRSITE dstdomain google.com
+http_access deny REDIRSITE
+deny_info http://monta.if.its.ac.id REDIRSITE
+```
+- Pada soal no.11, diminta untuk mengubah **ERROR PAGE DEFAULT SQUID** dengan unduh error page pada perintah `wget 10.151.36.202/ERR_ACCESS_DENIED` dan lakukan perintah `cp -r ERR_ACCESS_DENIED /usr/share/squid/errors/en/`
+- Restart squid.
+<img src="https://user-images.githubusercontent.com/61219556/100546441-e3e5c680-3293-11eb-9d06-bb81fb04bec1.PNG" width="500" height="auto">
+
+- Dan hasilnya sebagai berikut :
+<img src="https://user-images.githubusercontent.com/61219556/100546444-e516f380-3293-11eb-882a-ea5a754ad246.PNG" width="500" height="auto">
+<img src="https://user-images.githubusercontent.com/61219556/100546445-e6e0b700-3293-11eb-8b94-9dd335f965a6.PNG" width="500" height="auto">
+
+### 12. Membuat DNS dengan domain janganlupa-ta.yyy.pw dan port 8080.
+- Buka **UML MALANG** dan update package list dengan command 
+```
+apt-get update
+```
+- Install aplikasi bind9 pada **UML MALANG** dengan 
+ ```
+ apt-get install bind9 -y
+```
+- Buka file dengan perintah `nano /etc/bind/named.conf.local`, lalu isi configurasi domain dengan syntax sebagai berikut : <br>
+```
+zone "janganlupa-ta.b05.pw" {
+	type master;
+	file "/etc/bind/jarkom/janganlupa-ta.b05.pw";
+};
+```
+</br>
+<img src="https://user-images.githubusercontent.com/61219556/100546705-5c995280-3295-11eb-83d0-35987cb8765f.PNG" width="500" height="auto">
+
+- Buat folder jarkom di dalam /etc/bind dengan perintah 
+```
+mkdir /etc/bind/jarkom
+```
+- Copy file **db.local** ke dalam folder **jarkom** dan ubah namanya menjadi **janganlupa-ta.b05.pw**.
+```
+cp /etc/bind/db.local /etc/bind/jarkom/janganlupata-b05.pw
+```
+- Buka file **janganlupata-b05.pw** dengan perintah `nano /etc/bind/jarkom/janganlupata-b05.pw`. Lalu, edit file dengan memasukkan IP MOJOKERTO seperti berikut	:
+
+<img src="https://user-images.githubusercontent.com/61219556/100546707-5e631600-3295-11eb-81f3-0e3087d1d179.PNG" width="500" height="auto">
+
+- Restart bind9 untuk meng-update perubahan dengan perintah `service bind9 restart`.
+<img src="https://user-images.githubusercontent.com/61219556/100546708-5e631600-3295-11eb-8bbe-ee32221582dc.PNG" width="500" height="auto">
 
 
 

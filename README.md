@@ -3,3 +3,4 @@
 - Elvira Catrine Natalie  05111840000016
 
 ## TEKNIS PENGERJAAN
+<img src="[link photos]" width="500" height="auto">

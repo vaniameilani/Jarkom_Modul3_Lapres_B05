@@ -32,7 +32,7 @@ e. BANYUWANGI, MADIUN, SIDOARJO, dan GRESIK = Client
 
 Proses pembuatannya :<br>
 - Membuat **topologi.sh** pada Putty seperti pada gambar di bawah ini :<br>
-<img src="https://user-images.githubusercontent.com/61219556/100544052-c3af0b00-3285-11eb-9a82-60f35edb4611.PNG" width="500" height="auto">
+  <img src="https://user-images.githubusercontent.com/61219556/100544052-c3af0b00-3285-11eb-9a82-60f35edb4611.PNG" width="500" height="auto">
 
 - Lalu, di `bash topologi.sh`.
 - Tahap-tahap selanjutnya sama dengan modul Pengenalan UML. Perbedaannya adalah isi config dari `nano /etc/network/interfaces` pada setiap UML.<br>
@@ -85,7 +85,7 @@ apt-get install isc-dhcp-relay
 nano /etc/default/isc-dhcp-relay
 ```
 - Lalu, edit file seperti dibawah ini :
-[IMG relaySBY]
+  <img src="https://user-images.githubusercontent.com/61272072/100545664-7c2d7c80-328f-11eb-9ea8-86776682b2ec.PNG" width="500" height="auto">
 
 ### 3. client SUBNET 1 (GRESIK & SIDOARJO) mendapatkan range IP dari 192.168.0.10 sampai 192.168.0.100 dan 192.168.0.110 sampai 192.168.0.200.
 - Pada **TUBAN**, install DHCP Server dengan update package lists terlebih dahulu 

@@ -21,7 +21,7 @@
   c. TUBAN	: NID_DMZ_tiap_kelompok + 4 = 10.151.83.52
 
 ## SOAL
-<img src="https://user-images.githubusercontent.com/61272072/100545059-813cfc80-328c-11eb-9dce-71d40512843d.PNG" width="500" height="auto">
+[IMG]
 
 ### 1. Membuat Topologi Jaringan berdasarkan dengan kriteria :<br>
 a. SURABAYA                                 = Router<br>
@@ -32,40 +32,40 @@ e. BANYUWANGI, MADIUN, SIDOARJO, dan GRESIK = Client
 
 Proses pembuatannya :<br>
 - Membuat **topologi.sh** pada Putty seperti pada gambar di bawah ini :<br>
-  <img src="https://user-images.githubusercontent.com/61219556/100544052-c3af0b00-3285-11eb-9a82-60f35edb4611.PNG" width="500" height="auto">
+<img src="https://user-images.githubusercontent.com/61219556/100544052-c3af0b00-3285-11eb-9a82-60f35edb4611.PNG" width="500" height="auto">
 
 - Lalu, di `bash topologi.sh`.
 - Tahap-tahap selanjutnya sama dengan modul Pengenalan UML. Perbedaannya adalah isi config dari `nano /etc/network/interfaces` pada setiap UML.<br>
 a. Router SURABAYA
-    <img src="https://user-images.githubusercontent.com/61272072/100545336-f826c500-328d-11eb-97a1-bd77f3e1819c.PNG" width="500" height="auto">
-    <img src="https://user-images.githubusercontent.com/61272072/100545338-f957f200-328d-11eb-938f-f994b22c991f.PNG" width="500" height="auto">
+[IMG "Interface SBYa] 
+[IMG "Interface SBYb]
 
 b. DNS Server MALANG
-    <img src="https://user-images.githubusercontent.com/61272072/100545334-f65d0180-328d-11eb-8cd3-8156ea1683c9.PNG" width="500" height="auto">
+[IMG "interface MLG"]
 
 c. DHCP Server TUBAN
-    <img src="https://user-images.githubusercontent.com/61272072/100545343-fbba4c00-328d-11eb-901b-7b44213cbe4d.PNG" width="500" height="auto">
+[IMG "interface TUBAN]
 
 d. Proxy Server MOJOKERTO
-    <img src="https://user-images.githubusercontent.com/61272072/100545333-f4933e00-328d-11eb-9147-40b9102a537d.PNG" width="500" height="auto">
+[IMG "interface MJK]
 
 e. Client GRESIK
-    <img src="https://user-images.githubusercontent.com/61272072/100545331-f1984d80-328d-11eb-95a4-6117b4984c2e.PNG" width="500" height="auto">
+[IMG "interface GRESIK]
 
 f. Client SIDOARJO
-    <img src="https://user-images.githubusercontent.com/61272072/100545340-fa891f00-328d-11eb-895b-9af392f91626.PNG" width="500" height="auto">
+[IMG "interface SRJ]
 
 g. Client BANYUWANGI
-    <img src="https://user-images.githubusercontent.com/61272072/100545330-ef35f380-328d-11eb-97f8-63584252de46.PNG" width="500" height="auto">
+[IMG "interface BWI]
 
 h. Client MADIUN
-    <img src="https://user-images.githubusercontent.com/61272072/100545332-f3621100-328d-11eb-83c1-fc86ba5a4224.PNG" width="500" height="auto">
+[IMG "interface MDN]
 
 - Setelah itu di-restart dengan perintah `service networking interfaces`.
 - Lalu, cek dengan menggunakan `ifconfig` dan hasil nya seperti berikut ini :<br>
-  <img src="https://user-images.githubusercontent.com/61272072/100545206-530bec80-328d-11eb-8d47-4c26b422f8db.PNG" width="500" height="auto">
-  <img src="https://user-images.githubusercontent.com/61272072/100545203-51422900-328d-11eb-91a2-cb931ca60d6d.PNG" width="500" height="auto">
-  <img src="https://user-images.githubusercontent.com/61272072/100545198-4b4c4800-328d-11eb-9472-21dde2a69c41.PNG" width="500" height="auto">
+  [IMG ifconfig SBY]
+  [IMG ifconfig MLG]
+  [IMG ifconfig GRESIK]
 
 - Untuk mengakses jaringan keluar, ketik perintah `iptables –t nat –A POSTROUTING –o eth0 –j MASQUERADE –s 192.168.0.0/16` pada UML SURABAYA.
 
@@ -84,10 +84,10 @@ apt-get install isc-dhcp-relay
 ```
 nano /etc/default/isc-dhcp-relay
 ```
-- Lalu, edit file seperti dibawah ini :
-  <img src="https://user-images.githubusercontent.com/61272072/100545664-7c2d7c80-328f-11eb-9ea8-86776682b2ec.PNG" width="500" height="auto">
+Lalu, edit file seperti dibawah ini :
+[IMG relaySBY]
 
-### 3. client SUBNET 1 (GRESIK & SIDOARJO) mendapatkan range IP dari 192.168.0.10 sampai 192.168.0.100 dan 192.168.0.110 sampai 192.168.0.200.
+### 3-6
 - Pada **TUBAN**, install DHCP Server dengan update package lists terlebih dahulu 
 ```
 apt-get update
@@ -99,4 +99,59 @@ apt-get install isc-dhcp-server
 ```
 INTERFACES="eth0"
 ```
-- 
+- Buka file konfigurasi DHCP dengan perintah
+```
+nano /etc/dhcp/dhcpd.conf
+```
+- Tambahkan script berikut seperti dibawah ini
+[IMG secrver dhcp config]
+
+Pada soal no.3, pada **SUBNET1** yaitu **SUBNET 192.168.0.0**, atur range dari `192.168.0.10` sampai `192.168.0.100` dan dari `192.168.0.110` sampai `192.168.0.200`.<br>
+Pada soal no.4, pada **SUBNET3** yaitu **SUBNET 192.168.1.0**, atur range dari `192.168.1.50` sampai `192.168.1.70`.<br>
+Pada soal no.5, kedua subnet bagian `option domain-name-servers` ditulis IP MALANG yaitu `10.151.83.50` dan DNS `202.46.129.2` dari DHCP.<br>
+Pada soal no.6, pada **SUBNET1** pada `default-lease-time` nya 300 detik, sedangkan pada **SUBNET3** ditulis waktu 600 detik.
+
+- Restart service `isc-dhcp-server` dengan perintah 
+```
+service isc-dhcp-server restart
+```
+- Buka `nano /etc/network/interfaces` untuk mengonfigurasi interface `Client GRESIK`.
+- Comment atau hapus konfigurasi yang lama (konfigurasi IP statis). Lalu tambahkan 
+```
+auto eth0
+iface eth0 inet dhcp
+```
+[IMG statisGRESIK]
+
+- Restart network dengan perintah `service networking restart`
+[IMG client_GRESIK]
+
+- Cek kembali **IP GRESIK** dengan menjalankan `ifconfig`
+[IMG client_ifconfiGRESIK]
+
+- Periksa juga apakah **GRESIK** sudah mendapatkan DNS server sesuai konfigurasi di DHCP. Periksa `/etc/resolv.conf` dengan menggunakan perintah
+```
+cat /etc/resolv.conf
+```
+[IMG clientGRESIK_nameserver]
+
+- Lakukan kembali langkah - langkah di atas pada client :<br>
+**SIDOARJO**
+[IMG clientSIDOARJO]
+[IMG clientSIDOARJO_ifconfig]
+[IMG clientSIDOARJO2]
+
+**MADIUN**
+[IMG clientMADIUN]
+[IMG clientMADIUN_ifconfig]
+[IMG clientMADIUN2]
+
+**BANYUWANGI**
+[IMG BANYUWANGI ifconfig]
+[IMG BANYUWANGI ifconfig2]
+[IMG BANYUWANGI ifconfig3]
+
+### 7-11
+
+
+

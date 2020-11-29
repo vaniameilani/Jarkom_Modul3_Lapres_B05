@@ -21,7 +21,7 @@
   c. TUBAN	: NID_DMZ_tiap_kelompok + 4 = 10.151.83.52
 
 ## SOAL
-[IMG]
+<img src="https://user-images.githubusercontent.com/61272072/100545059-813cfc80-328c-11eb-9dce-71d40512843d.PNG" width="500" height="auto">
 
 ### 1. Membuat Topologi Jaringan berdasarkan dengan kriteria :<br>
 a. SURABAYA                                 = Router<br>

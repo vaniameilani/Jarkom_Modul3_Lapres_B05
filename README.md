@@ -37,29 +37,29 @@ Proses pembuatannya :<br>
 - Lalu, di `bash topologi.sh`.
 - Tahap-tahap selanjutnya sama dengan modul Pengenalan UML. Perbedaannya adalah isi config dari `nano /etc/network/interfaces` pada setiap UML.<br>
 a. Router SURABAYA
-<img src="https://user-images.githubusercontent.com/61272072/100545336-f826c500-328d-11eb-97a1-bd77f3e1819c.PNG" width="500" height="auto">
-<img src="https://user-images.githubusercontent.com/61272072/100545338-f957f200-328d-11eb-938f-f994b22c991f.PNG" width="500" height="auto">
+    <img src="https://user-images.githubusercontent.com/61272072/100545336-f826c500-328d-11eb-97a1-bd77f3e1819c.PNG" width="500" height="auto">
+    <img src="https://user-images.githubusercontent.com/61272072/100545338-f957f200-328d-11eb-938f-f994b22c991f.PNG" width="500" height="auto">
 
 b. DNS Server MALANG
-<img src="https://user-images.githubusercontent.com/61272072/100545334-f65d0180-328d-11eb-8cd3-8156ea1683c9.PNG" width="500" height="auto">
+    <img src="https://user-images.githubusercontent.com/61272072/100545334-f65d0180-328d-11eb-8cd3-8156ea1683c9.PNG" width="500" height="auto">
 
 c. DHCP Server TUBAN
-<img src="https://user-images.githubusercontent.com/61272072/100545343-fbba4c00-328d-11eb-901b-7b44213cbe4d.PNG" width="500" height="auto">
+    <img src="https://user-images.githubusercontent.com/61272072/100545343-fbba4c00-328d-11eb-901b-7b44213cbe4d.PNG" width="500" height="auto">
 
 d. Proxy Server MOJOKERTO
-<img src="https://user-images.githubusercontent.com/61272072/100545333-f4933e00-328d-11eb-9147-40b9102a537d.PNG" width="500" height="auto">
+    <img src="https://user-images.githubusercontent.com/61272072/100545333-f4933e00-328d-11eb-9147-40b9102a537d.PNG" width="500" height="auto">
 
 e. Client GRESIK
-<img src="https://user-images.githubusercontent.com/61272072/100545331-f1984d80-328d-11eb-95a4-6117b4984c2e.PNG" width="500" height="auto">
+    <img src="https://user-images.githubusercontent.com/61272072/100545331-f1984d80-328d-11eb-95a4-6117b4984c2e.PNG" width="500" height="auto">
 
 f. Client SIDOARJO
-<img src="https://user-images.githubusercontent.com/61272072/100545340-fa891f00-328d-11eb-895b-9af392f91626.PNG" width="500" height="auto">
+    <img src="https://user-images.githubusercontent.com/61272072/100545340-fa891f00-328d-11eb-895b-9af392f91626.PNG" width="500" height="auto">
 
 g. Client BANYUWANGI
-<img src="https://user-images.githubusercontent.com/61272072/100545330-ef35f380-328d-11eb-97f8-63584252de46.PNG" width="500" height="auto">
+    <img src="https://user-images.githubusercontent.com/61272072/100545330-ef35f380-328d-11eb-97f8-63584252de46.PNG" width="500" height="auto">
 
 h. Client MADIUN
-<img src="https://user-images.githubusercontent.com/61272072/100545332-f3621100-328d-11eb-83c1-fc86ba5a4224.PNG" width="500" height="auto">
+    <img src="https://user-images.githubusercontent.com/61272072/100545332-f3621100-328d-11eb-83c1-fc86ba5a4224.PNG" width="500" height="auto">
 
 - Setelah itu di-restart dengan perintah `service networking interfaces`.
 - Lalu, cek dengan menggunakan `ifconfig` dan hasil nya seperti berikut ini :<br>

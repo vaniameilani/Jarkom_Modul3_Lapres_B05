@@ -121,35 +121,35 @@ service isc-dhcp-server restart
 auto eth0
 iface eth0 inet dhcp
 ```
-<img src="https://user-images.githubusercontent.com/61219556/100546953-b64e4c80-3296-11eb-9dcb-49c0c208a34a.PNG" width="500" height="auto">
+<img src="https://user-images.githubusercontent.com/61219556/100546985-f44b7080-3296-11eb-84b1-3d9cb18319ff.PNG" width="500" height="auto">
 
 - Restart network dengan perintah `service networking restart`
-<img src="https://user-images.githubusercontent.com/61219556/100546953-b64e4c80-3296-11eb-9dcb-49c0c208a34a.PNG" width="500" height="auto">
+<img src="https://user-images.githubusercontent.com/61219556/100546991-f9102480-3296-11eb-8788-413729c0b891.PNG" width="500" height="auto">
 
 - Cek kembali **IP GRESIK** dengan menjalankan `ifconfig`
-<img src="https://user-images.githubusercontent.com/61219556/100546953-b64e4c80-3296-11eb-9dcb-49c0c208a34a.PNG" width="500" height="auto">
+<img src="https://user-images.githubusercontent.com/61219556/100546992-fad9e800-3296-11eb-94b3-d580c8a1baf9.PNG" width="500" height="auto">
 
 - Periksa juga apakah **GRESIK** sudah mendapatkan DNS server sesuai konfigurasi di DHCP. Periksa `/etc/resolv.conf` dengan menggunakan perintah
 ```
 cat /etc/resolv.conf
 ```
-<img src="https://user-images.githubusercontent.com/61219556/100546953-b64e4c80-3296-11eb-9dcb-49c0c208a34a.PNG" width="500" height="auto">
+<img src="https://user-images.githubusercontent.com/61219556/100546993-fb727e80-3296-11eb-8431-897a8ee3a6cc.PNG" width="500" height="auto">
 
 - Lakukan kembali langkah - langkah di atas pada client :<br>
 a.**SIDOARJO**
-<img src="https://user-images.githubusercontent.com/61219556/100546953-b64e4c80-3296-11eb-9dcb-49c0c208a34a.PNG" width="500" height="auto">
-<img src="https://user-images.githubusercontent.com/61219556/100546953-b64e4c80-3296-11eb-9dcb-49c0c208a34a.PNG" width="500" height="auto">
-<img src="https://user-images.githubusercontent.com/61219556/100546953-b64e4c80-3296-11eb-9dcb-49c0c208a34a.PNG" width="500" height="auto">
+<img src="https://user-images.githubusercontent.com/61219556/100546997-ff060580-3296-11eb-8f8a-4d7daf1a511b.PNG" width="500" height="auto">
+<img src="https://user-images.githubusercontent.com/61219556/100546998-ff9e9c00-3296-11eb-8b5a-06da56c7557d.PNG" width="500" height="auto">
+<img src="https://user-images.githubusercontent.com/61219556/100547000-00373280-3297-11eb-98d5-21b4966653fd.PNG" width="500" height="auto">
 <br>
 b.**MADIUN**
-<img src="https://user-images.githubusercontent.com/61219556/100546953-b64e4c80-3296-11eb-9dcb-49c0c208a34a.PNG" width="500" height="auto">
-<img src="https://user-images.githubusercontent.com/61219556/100546953-b64e4c80-3296-11eb-9dcb-49c0c208a34a.PNG" width="500" height="auto">
-<img src="https://user-images.githubusercontent.com/61219556/100546953-b64e4c80-3296-11eb-9dcb-49c0c208a34a.PNG" width="500" height="auto">
+<img src="https://user-images.githubusercontent.com/61219556/100546994-fca3ab80-3296-11eb-81f9-127007faeea7.PNG" width="500" height="auto">
+<img src="https://user-images.githubusercontent.com/61219556/100546995-fdd4d880-3296-11eb-803f-a06ba9116cd2.PNG" width="500" height="auto">
+<img src="https://user-images.githubusercontent.com/61219556/100546996-fe6d6f00-3296-11eb-99af-b05e2bbab246.PNG" width="500" height="auto">
 <br>
 c.**BANYUWANGI**
-<img src="https://user-images.githubusercontent.com/61219556/100546953-b64e4c80-3296-11eb-9dcb-49c0c208a34a.PNG" width="500" height="auto">
-<img src="https://user-images.githubusercontent.com/61219556/100546953-b64e4c80-3296-11eb-9dcb-49c0c208a34a.PNG" width="500" height="auto">
-<img src="https://user-images.githubusercontent.com/61219556/100546953-b64e4c80-3296-11eb-9dcb-49c0c208a34a.PNG" width="500" height="auto">
+<img src="https://user-images.githubusercontent.com/61219556/100546986-f6153400-3296-11eb-90fd-a20fb14e27d4.PNG" width="500" height="auto">
+<img src="https://user-images.githubusercontent.com/61219556/100546987-f6adca80-3296-11eb-9383-7e5fe5a651e7.PNG" width="500" height="auto">
+<img src="https://user-images.githubusercontent.com/61219556/100546990-f8778e00-3296-11eb-9203-7dfd5d8976c3.PNG" width="500" height="auto">
 
 ### 7-11
 - Install terlebih dahulu Squid pada **MOJOKERTO** 

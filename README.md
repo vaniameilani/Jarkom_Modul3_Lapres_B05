@@ -136,22 +136,54 @@ cat /etc/resolv.conf
 [IMG clientGRESIK_nameserver]
 
 - Lakukan kembali langkah - langkah di atas pada client :<br>
-**SIDOARJO**
+a.**SIDOARJO**
 [IMG clientSIDOARJO]
 [IMG clientSIDOARJO_ifconfig]
 [IMG clientSIDOARJO2]
-
-**MADIUN**
+<br>
+b.**MADIUN**
 [IMG clientMADIUN]
 [IMG clientMADIUN_ifconfig]
 [IMG clientMADIUN2]
-
-**BANYUWANGI**
+<br>
+c.**BANYUWANGI**
 [IMG BANYUWANGI ifconfig]
 [IMG BANYUWANGI ifconfig2]
 [IMG BANYUWANGI ifconfig3]
 
 ### 7-11
+- Install terlebih dahulu Squid pada **MOJOKERTO** 
+```
+apt-get install squid
+```
+- Cek status squid untuk memastikan bahwa Squid telah berjalan dengan baik
+```
+service squid status
+```
+<img src="https://user-images.githubusercontent.com/61219556/100545915-fe6a7080-3290-11eb-965c-aca1a726409c.PNG" width="500" height="auto">
+
+- Backup terlebih dahulu file konfigurasi default yang disediakan Squid.
+```
+mv /etc/squid/squid.conf /etc/squid/squid.conf.bak
+```
+- Pada soal no.7 disuruh untuk membuat **username** dann **password** dengan format :<br>
+Username 		: userta_yyy		= userta_b05<br>
+Password	  : inipassw0rdta_yyy	= inipassw0rdta_b05<br>
+Maka, install terlebih dahulu `apache2-utils` dengan perintah `apt-get install apache2-utils
+`.
+- Buat user dan password baru. Ketikkan:
+```
+htpasswd -c /etc/squid/passwd userta_b05
+```
+<img src="https://user-images.githubusercontent.com/61219556/100545918-00ccca80-3291-11eb-88c1-708a100ffce2.PNG" width="500" height="auto">
+
+- Lalu, buat konfigurasi baru dengan mengetikkan `nano /etc/squid/squid.conf`. 
+Kemudian, pada file config yang baru, edit file seperti ini   :
+<img src="https://user-images.githubusercontent.com/61219556/100545916-00343400-3291-11eb-9f44-24df058f7021.PNG" width="500" height="auto">
+
+- Restart Squid dengan perintah `service squid restart`
+<https://user-images.githubusercontent.com/61219556/100545919-032f2480-3291-11eb-8b3b-7f4dc3ef66e6.PNG" width="500" height="auto">
+
 
 
 

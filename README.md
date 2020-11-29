@@ -35,7 +35,7 @@ Proses pembuatannya :<br>
 <img src="https://user-images.githubusercontent.com/61219556/100544052-c3af0b00-3285-11eb-9a82-60f35edb4611.PNG" width="500" height="auto">
 
 - Lalu, di `bash topologi.sh`.
-- Tahap-tahap selanjutnya sama dengan modul Pengenalan UML. Perbedaannya adalah isi config dari `nano /etc/network/interfaces` pada setiap UML. <br>
+- Tahap-tahap selanjutnya sama dengan modul Pengenalan UML. Perbedaannya adalah isi config dari `nano /etc/network/interfaces` pada setiap UML.<br>
 a. Router SURABAYA
 [IMG "Interface SBYa] 
 [IMG "Interface SBYb]
@@ -62,7 +62,7 @@ h. Client MADIUN
 [IMG "interface MDN]
 
 - Setelah itu di-restart dengan perintah `service networking interfaces`.
-- Lalu, cek dengan menggunakan `ifconfig` dan hasil nya seperti berikut ini :<BR>
+- Lalu, cek dengan menggunakan `ifconfig` dan hasil nya seperti berikut ini :<br>
   [IMG ifconfig SBY]
   [IMG ifconfig MLG]
   [IMG ifconfig GRESIK]
@@ -70,18 +70,33 @@ h. Client MADIUN
 - Untuk mengakses jaringan keluar, ketik perintah `iptables –t nat –A POSTROUTING –o eth0 –j MASQUERADE –s 192.168.0.0/16` pada UML SURABAYA.
 
 ### 2. SURABAYA dijadikan sebagai DHCP RELAY.
-- Untuk penggunaannya, perlu install DHCP Relay pada UML SURABAYA. 
+- Untuk penggunaannya, perlu install DHCP Relay pada UML SURABAYA.<br>
 a. Update package lists di router **SURABAYA** dengan perintah
 ```
 apt-get update
 ```
-b. Install **isc-dhcp-server** di router **SURABAYA** dengan perintah 
+b. Install **isc-dhcp-relay** di router **SURABAYA** dengan perintah 
 ```
-apt-get install isc-dhcp-server
+apt-get install isc-dhcp-relay
 ```
 
 - Buka file konfigurasi interface dengan perintah 
 ```
 nano /etc/default/isc-dhcp-relay
 ```
+- Lalu, edit file seperti dibawah ini :
 [IMG relaySBY]
+
+### 3. client SUBNET 1 (GRESIK & SIDOARJO) mendapatkan range IP dari 192.168.0.10 sampai 192.168.0.100 dan 192.168.0.110 sampai 192.168.0.200.
+- Pada **TUBAN**, install DHCP Server dengan update package lists terlebih dahulu 
+```
+apt-get update
+```
+```
+apt-get install isc-dhcp-server
+```
+- Lalu, buka file `nano /etc/default/isc-dhcp-server` dan edit pada **INTERFACES** dengan 
+```
+INTERFACES="eth0"
+```
+- 
